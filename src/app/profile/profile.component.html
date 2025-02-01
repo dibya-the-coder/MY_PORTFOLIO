@@ -9,13 +9,15 @@
         class="h-56 w-56 rounded-full border-4 border-blue-500 shadow-lg object-cover mx-auto lg:mx-0 transition-transform transform hover:scale-105"
       />
     </div>
-  
+
     <!-- Profile Details -->
     <div class="lg:w-2/3 lg:ml-8 text-center lg:text-left">
-      <h2 class="text-5xl font-bold text-gray-100 mb-4 hover:text-blue-400 transition-colors shadow-move glowing">
+      <h2 class="text-5xl font-bold text-gray-100 mb-4 hover:text-blue-400 transition-colors">
         {{ profile.personalInfo.name }}
       </h2>
-      <p class="text-xl text-gray-400 mb-6 italic">{{ profile.personalInfo.bio }}</p>
+      <p class="text-xl text-gray-400 mb-6 italic">
+        {{ profile.personalInfo.bio }}
+      </p>
       <div class="text-gray-300 text-sm space-y-3">
         <p><strong>Email:</strong> {{ profile.personalInfo.email }}</p>
         <p><strong>Phone:</strong> {{ profile.personalInfo.phone }}</p>
@@ -30,8 +32,8 @@
       <h3 class="text-2xl font-bold text-gray-100 mb-4">Hands-On Technologies</h3>
       <div class="flex flex-wrap gap-3">
         <span
-          *ngFor="let tech of profile.technologies.handsOn; let i = index"
-          class="px-6 py-3 bg-gradient-to-r from-purple-600 via-pink-700 to-red-500 text-blue-100 text-sm rounded-full shadow-lg hover:scale-105 transition-transform"
+          *ngFor="let tech of profile.technologies.handsOn"
+          class="px-6 py-2 bg-gradient-to-r from-purple-600 via-pink-700 to-red-500 text-white text-sm rounded-full shadow-md hover:scale-105 transition-transform"
         >
           {{ tech }}
         </span>
@@ -41,8 +43,8 @@
       <h3 class="text-2xl font-bold text-gray-100 mb-4">Technologies I've Worked On</h3>
       <div class="flex flex-wrap gap-3">
         <span
-          *ngFor="let tech of profile.technologies.workedOn; let i = index"
-          class="px-6 py-3 bg-indigo-700 text-indigo-100 text-sm rounded-full shadow-lg hover:scale-105 transition-transform"
+          *ngFor="let tech of profile.technologies.workedOn"
+          class="px-6 py-2 bg-indigo-700 text-white text-sm rounded-full shadow-md hover:scale-105 transition-transform"
         >
           {{ tech }}
         </span>
@@ -50,28 +52,25 @@
     </div>
   </div>
 
-  <!-- New Grid for Programming Languages and Operating Systems -->
+  <!-- Programming Languages and Operating Systems -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-    <!-- Programming Languages Known -->
     <div class="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
       <h3 class="text-2xl font-bold text-gray-100 mb-4">Programming Languages Known</h3>
       <div class="flex flex-wrap gap-3">
         <span
           *ngFor="let language of profile.programmingLanguages"
-          class="px-6 py-3 bg-gradient-to-r from-green-600 via-blue-700 to-purple-500 text-white text-sm rounded-full shadow-lg hover:scale-105 transition-transform"
+          class="px-6 py-2 bg-gradient-to-r from-green-600 via-blue-700 to-purple-500 text-white text-sm rounded-full shadow-md hover:scale-105 transition-transform"
         >
           {{ language }}
         </span>
       </div>
     </div>
-    
-    <!-- Operating Systems -->
     <div class="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
       <h3 class="text-2xl font-bold text-gray-100 mb-4">Operating Systems</h3>
       <div class="flex flex-wrap gap-3">
         <span
           *ngFor="let os of profile.operatingSystems"
-          class="px-6 py-3 bg-gradient-to-r from-teal-600 via-green-700 to-blue-500 text-white text-sm rounded-full shadow-lg hover:scale-105 transition-transform"
+          class="px-6 py-2 bg-gradient-to-r from-teal-600 via-green-700 to-blue-500 text-white text-sm rounded-full shadow-md hover:scale-105 transition-transform"
         >
           {{ os }}
         </span>
@@ -84,7 +83,7 @@
     <div class="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
       <h3 class="text-2xl font-bold text-gray-100 mb-4">Experience</h3>
       <ul class="space-y-6">
-        <li *ngFor="let exp of profile.experience" class="border-l-4 rounded-md border-blue-500 pl-4 hover:bg-gray-700 transition-colors">
+        <li *ngFor="let exp of profile.experience" class="border-l-4 border-blue-500 pl-4 hover:bg-gray-700 transition-colors rounded-md">
           <h4 class="text-lg font-semibold text-gray-100">{{ exp.role }}</h4>
           <p class="text-sm text-gray-400">{{ exp.company }} • {{ exp.duration }}</p>
           <p class="text-gray-300">{{ exp.description }}</p>
@@ -107,7 +106,7 @@
   <div class="bg-gray-800 p-8 rounded-xl shadow-md mt-12 hover:shadow-lg transition-shadow">
     <h3 class="text-2xl font-bold text-gray-100 mb-4">Certifications</h3>
     <ul class="space-y-6">
-      <li *ngFor="let cert of profile.certifications" class="border-l-4 rounded-md border-violet-700 pl-4 hover:bg-gray-700 transition-colors">
+      <li *ngFor="let cert of profile.certifications" class="border-l-4 border-violet-700 pl-4 hover:bg-gray-700 transition-colors rounded-md">
         <h4 class="text-lg font-semibold text-gray-100">{{ cert.title }}</h4>
         <p class="text-sm text-gray-400">{{ cert.issuer }}</p>
         <p class="text-gray-300">{{ cert.date }}</p>
